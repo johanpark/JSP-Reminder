@@ -13,7 +13,7 @@ body {
 }
  
 .conatiner {
-  width: 800px;
+  width: 900px;
   height: 480px;
   margin: 0 auto;
   border: 1px solid gray;
@@ -58,7 +58,7 @@ body {
   width: 50%;
   font-size: 12px;
   /* background-color: #adb5bd; */
-  background-color: white;
+  background-color: gray;
   color: white;
 }
 .add-event-day:focus,
@@ -94,7 +94,7 @@ form i:active {
 
 .container_right {
   float: left;
-  width: 380px;
+  width: 515px;
   padding: 10px;
   height: 480px;
   background-color: white;
@@ -145,14 +145,3 @@ tr td:active {
   color: blue;
 }
 
-#btn{
-  width: 30%; 
-height: 44px; 
-background-color: rgb(83, 154, 236);
-border: 1px; 
-border-radius: 15px; 
-color: white; 
-font-size: 17px; 
-font-weight: 500;
-margin-left: 250px;
-}

@@ -1,6 +1,6 @@
 const ClockTimer =document.querySelector(".js-clock");
 const ClockTitle = ClockTimer.querySelector("h1");
-
+/*현재 시간 표시*/
 function getTime() {
     const Time = new Date();
     const min = Time.getMinutes();

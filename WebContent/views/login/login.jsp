@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="EUC-KR"%>
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -49,20 +49,20 @@
 </head>
 <body class="text-center">
 <div class ="login_container">
-  <form class="form-signin" action="main.jsp" method="post">
+  <form class="form-signin" action="/Reminder/memberLogin.do" method="post">
+  ${error}
   <h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>
-  <label for="inputEmail" class="sr-only">Email address</label>
-  <input type="text" id="inputEmail" class="form-control" placeholder="Email address" required autofocus> <!-- Àá±ñ¸¸ text·Î -->
+  <label for="inputEmail" class="sr-only">ID</label>
+  <input type="text" id="inputEmail" class="form-control" name="ID" placeholder="Your ID" required autofocus> <!-- ìž ê¹ë§Œ textë¡œ -->
   <label for="inputPassword" class="sr-only">Password</label>
-  <input type="password" id="inputPassword" class="form-control" placeholder="Password" required>
+  <input type="password" id="inputPassword" class="form-control" name="Password" placeholder="Password" required>
   <div class="checkbox mb-3">
     <label>
       <input type="checkbox" value="remember-me"> Remember me
     </label>
   </div>
-  <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
-  <p><strong>Join Us <a href="/Reminder/views/account.jsp">Click Here</a></strong>
-  
+  <input class="btn btn-lg btn-primary btn-block" type="submit" value="sign"/>
+  <p><strong>Join Us <a href="../login/account.jsp">Click Here</a></strong>
   <p class="mt-5 mb-3 text-muted">&copy; 2020 John</p>
   </form>
   </div>

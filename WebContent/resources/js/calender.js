@@ -34,10 +34,11 @@ let today = new Date(),
 const toDoForm = document.querySelector(".js-toDoForm"),
   toDoInput = toDoForm.querySelector(".add-event-day"),
   toDoList = document.querySelector(".js-toDoList");
-
+/*달력 데이터 및 현재 날짜 가져오기*/
+/*todo의 키값을 현재 날짜로 저장*/
 window.prevCalendar = prevCalendar;
 window.nextCalendar = nextCalendar;
-
+/*지난 달로 이동*/
 function prevCalendar() {
   currentYear = currentMonth === 0 ? currentYear - 1 : currentYear;
   currentMonth = currentMonth === 0 ? 11 : currentMonth - 1;
@@ -61,7 +62,7 @@ function prevCalendar() {
     );
   }
 }
-
+/*다음 달로 이동*/
 function nextCalendar() {
   currentYear = currentMonth === 11 ? currentYear + 1 : currentYear;
   currentMonth = currentMonth === 11 ? 0 : currentMonth + 1;
@@ -85,6 +86,7 @@ function nextCalendar() {
     );
   }
 }
+/*달력 출력*/
 function showCalendar(year, month) {
   toDoForm.addEventListener("submit", handleSubmit);
   deleteAll.addEventListener("click", delAll);
@@ -135,7 +137,7 @@ function showCalendar(year, month) {
     tableBodyLi.appendChild(row);
   }
 }
-
+/*선택 날짜 포인터*/
 function point(cell) {
   let Point = event.target.firstChild.nodeValue;
   pointDate.innerHTML = Point;
@@ -184,11 +186,11 @@ function handleSubmit(event) {
   write(todayKeyValue, currentValue);
   toDoInput.value = "";
 }
-
+/*todo로드*/
 function loadToDos(cell) {
   const loadId = cell;
   const loadedToDos = JSON.parse(localStorage.getItem(loadId));
-  let lis = document.querySelectorAll("li");
+  let lis = document.querySelectorAll("todolitag");    /*찾았다 이 개새끼*/
   for (let i = 0; (li = lis[i]); i++) {
     li.parentNode.removeChild(li);
   }
@@ -198,10 +200,11 @@ function loadToDos(cell) {
     });
   }
 }
-
+/*todo출력*/
 function paintToDo(text) {
   if (text !== "") {
     const li = document.createElement("li");
+    li.classList.add('todolitag');
     li.style.overflow = "hidden";
     const delbtn = document.createElement("i");
     delbtn.addEventListener("click", deleteToDo);
@@ -221,7 +224,7 @@ function paintToDo(text) {
     toDoList.appendChild(li);
   }
 }
-
+/*todo삭제*/
 function deleteToDo(e) {
   let confirm_delete = confirm("You want delete??");
   if (confirm_delete === true) {
@@ -235,6 +238,7 @@ function deleteToDo(e) {
     localStorage.setItem(todayKeyValue, JSON.stringify(textData));
   }
 }
+/*모든 todo삭제*/
 function delAll(e) {
   let length = e.target.parentNode.parentNode.children[2].children.length;
   if (length) {
